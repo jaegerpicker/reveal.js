@@ -43,19 +43,42 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>Testing and Packaging JS:</h1>
+					<h3>JavaScript's final frontier</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Created by <a href="http://blog.codeartgames.com">Shawn Campbell</a> / <a href="http://twitter.com/jaegerpicker">@jaegerpicker</a></small>
 					</p>
 				</section>
-
 				<section>
-					<h2>Heads Up</h2>
+					<h2>Who am I?</h2>
 					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
+						I'm Shawn Campbell, I've been a software engineer for the last 15 years. I've mostly worked on web applications but mobile and desktop applications
+						also. I work at <a href="http://www.cashstar.com">CashStar</a> here in Portland, ME. I'm new to Maine since September 2013 and loving it so far.
+						I love working with python but have used Objective-C, Java, C#, ruby, GoLang, C/C++, and Groovy professional in the past but more than any language
+						I've always worked with JavaScript.
 					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Let's bravefully go where few have gone before</h2>
+					</section>
+					<section>
+						<h2>Packaging? What for and why</h2>
+						<p>
+							In this presentation I refer to two types of packaging. Using a package management to control control dependencies and building your app. There are two
+							important types of libraries to worry about managing in web applications. Server side or development time libraries and client side or web app dependencies.
+							Development libraries are typically used for unit testing, JS minification, JS cancatenation, or css(less/sass) complilation. Client side libs are things
+							like backbone.js, ember.js, or underscore.js.
+						</p>
+					</section>
+					<section>
+						<h2>Unit Testing</h2>
+						<p>
+							Our client side javascript apps are becoming more and more complicated. Server-side developers have long placed a huge importance on automated unit testing.
+							Often going as far as to break builds if the tests do not all pass, yet client side unit testing remains much less common. Testing our code should be required
+							not optional, even the client side code.
+						</p>
+					</section>
 
 					<aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
@@ -65,95 +88,74 @@
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Vertical Slides</h2>
+						<h2>Task runners</h2>
 						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
+							JavaScript task runners are useful JS files that help to automate common development and server side tasks. We'll cover two options here, Grunt and Gulp.
 						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
+						<h2><a href="http://gruntjs.com/">Grunt.js</a> </h2>
+						<p>
+							Grunt is the most popular and most used task runner around today. Lots of plugins and a ton of examples on the internet. It's based on defining tasks and
+							and using various node libraries to automate tasks.
+						</p>
 					</section>
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
+						<h2><a href="http://gulpjs.com/">Gulp.js</a></h2>
+						<p>
+							Gulp is a new and popular task runner. It's a based on node.js streams and code-over-configuration and aims to be simpliarer and quicker to use than Grunt.
+							It's still very new and there are vastly fewer examples and plugins available however.
+						</p>
 					</section>
 				</section>
-
 				<section>
-					<h2>Slides</h2>
+					<h2>Types of tasks</h2>
 					<p>
-						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
+						I usually define 5 different tasks:
+						<ol>
+							<li>Build</li>
+							<li>server</li>
+							<li>clean</li>
+							<li>test</li>
+							<li>test ci</li>
+						</ol>
 					</p>
 				</section>
-
 				<section>
-					<h2>Point of View</h2>
+					<h2>Build</h2>
 					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+						This task typically will minify and concatenate javascript into one file. It will also compile css via less or whatever css preprocessor you have used
+						in the project. This is also the step that you would compile CoffeeScript if you are using it.
 					</p>
 				</section>
-
 				<section>
-					<h2>Works in Mobile Safari</h2>
+					<h2>Server</h2>
 					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
+						This task will start a simple html serving web server, that will autoreload any html/js/css upon change. Grunt-livereload is a great plugin to help
+						with this.
 					</p>
 				</section>
-
 				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
+					<h2>Clean</h2>
+					<p>
+						This task will remove the compiled JS and css files form the project. It's sometimes nice to reset our app in order to avoid any wierd caching issues.
+					</p>
 				</section>
-
 				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
+					<h2>Test</h2>
+					<p>
+						This task will start a test runner in an interactive mode. Running the unit tests in chrome. I use testem but karma is also very popular. The test runner
+						will monitor for changes in the tests and new tests being added. I try to use a practical version of TDD and having a continual running test enviroment
+						really helps me have a solid work flow.
+					</p>
 				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
+				<section>
+					<h2>Test ci</h2>
+					<p>
+						This task runs tests in a headless manner that is useful for continous integration. This will use PhantomJS which is a headless webkit browser to run
+						tests with out interaction.
+					</p>
 				</section>
-
 				<section id="transitions">
 					<h2>Transition Styles</h2>
 					<p>
