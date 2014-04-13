@@ -54,21 +54,26 @@
 					<p>
 						I'm Shawn Campbell, I've been a software engineer for the last 15 years. I've mostly worked on web applications but mobile and desktop applications
 						also. I work at <a href="http://www.cashstar.com">CashStar</a> here in Portland, ME. I'm new to Maine since September 2013 and loving it so far.
-						I love working with python but have used Objective-C, Java, C#, ruby, GoLang, C/C++, and Groovy professional in the past but more than any language
+						I love working with python but have used Objective-C, Java, C#, ruby, GoLang, C/C++, and Groovy professionally in the past but more than any language
 						I've always worked with JavaScript.
 					</p>
 				</section>
 				<section>
 					<section>
-						<h2>Let's bravefully go where few have gone before</h2>
+						<h2>Let's bravefully go where no man has gone before (or at least not nearly as many as should have)</h2>
 					</section>
 					<section>
 						<h2>Packaging? What for and why</h2>
 						<p>
-							In this presentation I refer to two types of packaging. Using a package management to control control dependencies and building your app. There are two
+							Packaging has two important use cases, first dependency managment(think pip, ruby gems, or in this case npm and bower) and second building your app. There are two
 							important types of libraries to worry about managing in web applications. Server side or development time libraries and client side or web app dependencies.
 							Development libraries are typically used for unit testing, JS minification, JS cancatenation, or css(less/sass) complilation. Client side libs are things
 							like backbone.js, ember.js, or underscore.js.
+						</p>
+						<p>
+							Building your app is concatenating your js/css, minifying your code, and updating your templates to use the new libs. This is also the step that will compile
+							CoffeeScript, ClojureScript, or TypeScript along with Less, SCSS, or Sass. The packaging tool can then package your web app up and make it much easier to
+							deploy.
 						</p>
 					</section>
 					<section>
@@ -141,22 +146,48 @@
 					<h2>Test</h2>
 					<p>
 						This task will start a test runner in an interactive mode. Running the unit tests in chrome. I use testem but karma is also very popular. The test runner
-						will monitor for changes in the tests and new tests being added. I try to use a practical version of TDD and having a continual running test enviroment
+						will monitor for changes in the tests and new tests being added. I try to use a practical version of TDD* and having a continual running test enviroment
 						really helps me have a solid work flow.
 					</p>
+					<small>
+						*By practical I mean I tend to layout and develop the base outline and structure of the code base prior to starting basic testing. This tends to remove
+						most of the tedium of having tests fail because I haven't written any code for them yet.
+					</small>
 				</section>
 				<section>
 					<h2>Test ci</h2>
 					<p>
 						This task runs tests in a headless manner that is useful for continous integration. This will use PhantomJS which is a headless webkit browser to run
-						tests with out interaction.
+						tests with out interaction. This is an important step to help with a build server integration.
+					</p>
+				</section>
+				<section>
+					<h1>Testing!</h1>
+				</section>
+				<section>
+					<h2>A note about TDD, BDD, and integration tests</h2>
+					<p>
+						I don't think a script TDD or BDD approach is completely neccessary to produce quality code, however I do belive that unit tests and integration tests
+						are strictly neccessary for a quality code base. Here is my working definitation of Unit tests and integration tests:
+						<ul>
+							<li>
+								Unit tests are tests that only interact with your codebase. For example no ajax calls out are actually executed, no browser apis or library apis
+								called directly without wrapping code, and the test is strictly responsible for testing a small descrete section of code. I personally like to limit
+								my unit tests to testing single functions were possible. It's very often neccessary to mock out external calls. I use <a href="http://sinonjs.org/">
+									Sinon.js</a> to handle most of my mocking needs.
+							</li>
+							<li>
+								Integration tests are broader and my general, system wide type of tests. An ajax call out to an external/server side API is a good example. Integration
+								testing is a broader subject and I'll stick to unit testing in these slides.
+							</li>
 					</p>
 				</section>
 				<section id="transitions">
 					<h2>Mochai? Chai? really the coffee names have gone far enough</h2>
 					<p>
 						Mocha is a Unit testing library. It uses a BDD style syntax for it's testing descrtiptions. Here is the offical tag line:
-						Mocha is a feature-rich JavaScript test framework running on node.js and the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.
+						Mocha is a feature-rich JavaScript test framework running on node.js and the browser, making asynchronous testing simple and fun. Mocha tests run serially,
+						allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.
 						Chai is a testing syntax helper library used to specify a declaritive/promise based assertion syntax. Offical tag line:
 						Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
 					</p>
@@ -167,20 +198,20 @@
 					<p>
 						BDD - stands for Behavior driven development. Tests are written in a manner that reads like a sentence.
 						In other words a test should read in this way
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 						test("the function getting data from the api", function(fixture_data) {
 							//....do test stuff
 						});
 					</code></pre>
 						Assertions look like this normally:
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 						a = 1;
 						b = 2;
 						assert(a == b, "This should have failed");
 						// this print out the test in the second parameter
 					</code></pre>
 						Chai make it nicer but giving us this syntax:
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 						a = 1;
 						b = 1;
 						a.should.equal.b("This should not fail");
@@ -190,6 +221,12 @@
 						So assertions are the indivual tests clauses of our greater tests suite.
 					</p>
 				</section>
+				<section>
+					<h2>Let's look at an examples</h2>
+					<p>
+						I setup a sample project using backbone.js app with mocha, chai, sinon, testem, grunt, npm, and bower.
+					</p>
+					<a href="http://github.com/jaegerpicker/JSUnitTestBackBone">http://github.com/jaegerpicker/JSUnitTestBackBone</a>
 			</div>
 
 		</div>
